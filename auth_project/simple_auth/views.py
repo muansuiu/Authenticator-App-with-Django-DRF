@@ -13,7 +13,6 @@ import pyotp
 
 class OwnerRegistrationView(APIView):
     serializer_class = OwnerSerializer
-    queryset = Users.objects.all()
 
     def post(self, request, format=None):
         serializer = OwnerSerializer(data=request.data)
@@ -32,7 +31,6 @@ class OwnerRegistrationView(APIView):
 
 class RegisterView(generics.GenericAPIView):
     serializer_class = UserSerializer
-    queryset = Users.objects.all()
 
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
@@ -51,7 +49,6 @@ class RegisterView(generics.GenericAPIView):
 
 class LoginView(generics.GenericAPIView):
     serializer_class = UserSerializer
-    queryset = Users.objects.all()
 
     def post(self, request):
         data = request.data
@@ -89,7 +86,6 @@ class LoginView(generics.GenericAPIView):
 
 class VerifyOTP(generics.GenericAPIView):
     serializer_class = UserSerializer
-    queryset = Users.objects.all()
 
     def post(self, request):
         data = request.data
